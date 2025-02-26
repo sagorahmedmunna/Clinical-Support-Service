@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Doctor Profile{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/doctor_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <h1>Doctor Profile</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label for="active">Active</label>
+        <input type="checkbox" name="active" {% if role_data.active %}checked{% endif %}>
+
+        <label for="organization">Organization</label>
+        <input type="text" name="organization" value="{{ role_data.organization.display|default:'' }}" required>
+
+        <label for="role_code">Role Code</label>
+        <div class="form-group">
+            <!-- Role code with autocomplete suggestions -->
+            <input list="role_codes" id="role_code" name="role_code" class="form-control" placeholder="Select or type your role">
+            <datalist id="role_codes">
+                <option value="Physician">
+                <option value="Surgeon">
+                <option value="General Practitioner">
+                <option value="Referring Practitioner">
+                <option value="Nurse">
+                <option value="Pharmacist">
+                <!-- Add more roles here -->
+            </datalist>
+        </div>
+        <label for="specialty">Specialty</label>
+        <div id="specialty-container">
+            {% for spec in role_data.specialty %}
+                <input type="text" name="specialty" value="{{ spec.text }}">
+            {% endfor %}
+        </div>
+        <button type="button" onclick="addField('specialty-container', 'specialty')">+ Add More</button>
+
+        <label for="location">Location</label>
+        <div id="location-container">
+            {% for loc in role_data.location %}
+                <input type="text" name="location" value="{{ loc.display }}">
+            {% endfor %}
+        </div>
+        <button type="button" onclick="addField('location-container', 'location')">+ Add More</button>
+
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" value="{{ role_data.contact.0.telecom.0.value|default:'' }}">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" value="{{ role_data.contact.0.telecom.1.value|default:'' }}">
+
+        <label for="available_days">Available Days</label>
+        <input type="text" name="available_days" value="{{ role_data.availability.availableTime.0.daysOfWeek|join:', ' }}">
+
+        <label for="available_start">Start Time</label>
+        <input type="time" name="available_start" value="{{ role_data.availability.availableTime.0.availableStartTime }}">
+
+        <label for="available_end">End Time</label>
+        <input type="time" name="available_end" value="{{ role_data.availability.availableTime.0.availableEndTime }}">
+
+        <button id="save" type="submit" class="btn btn-save">Save Changes</button>
+    </form>
+</div>
+
+<script>
+    function addField(containerId, name) {
+        var container = document.getElementById(containerId);
+        var input = document.createElement("input");
+        input.type = "text";
+        input.name = name;
+        container.appendChild(input);
+    }
+
+</script>
+{% endblock %}

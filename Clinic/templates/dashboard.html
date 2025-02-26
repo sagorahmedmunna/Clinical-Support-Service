@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="dashboard-card">
+            <h1 class="dashboard-title">Welcome to your Dashboard, {{ user.username }}!</h1>
+            
+            {% if fhir_data %}
+                <div class="profile-info">
+                    <h2>Profile Information</h2>
+                    <div class="profile-card">
+                        <div class="profile-item">
+                            <strong>Name:</strong>
+                            <span>{{ fhir_data.name.0.given.0 }} {{ fhir_data.name.0.family }}</span>
+                        </div>
+                        <div class="profile-item">
+                            <strong>Gender:</strong>
+                            <span>{{ fhir_data.gender }}</span>
+                        </div>
+                        <div class="profile-item">
+                            <strong>Specialty:</strong>
+                            <span>{{ fhir_data.specialty }}</span>
+                        </div>
+                        <div class="profile-item">
+                            <strong>Phone:</strong>
+                            <span>{{ fhir_data.telecom.0.value }}</span>
+                        </div>
+                        <div class="profile-item">
+                            <strong>Birth Date:</strong>
+                            <span>{{ fhir_data.birthDate }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+            <form method="POST" action="{% url 'Hapi:logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-logout">Logout</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

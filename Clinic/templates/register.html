@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block title %}Register{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <h1>Register as a {{ role|capfirst }}</h1>
+            <form method="POST" class="register-form">
+                {% csrf_token %}
+
+                <!-- User Form Fields -->
+                <div class="form-group">
+                    <label for="id_email">Email Address (used as username)</label>
+                    {{ user_form.email }}
+                </div>
+                <div class="form-group">
+                    <label for="id_password1">Password</label>
+                    {{ user_form.password1 }}
+                </div>
+                <div class="form-group">
+                    <label for="id_password2">Confirm Password</label>
+                    {{ user_form.password2 }}
+                </div>
+
+                <!-- Role-Specific Fields -->
+                {% if role == 'doctor' %}
+                    <div class="form-group">
+                        <label for="id_first_name">First Name</label>
+                        {{ doctor_form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_last_name">Last Name</label>
+                        {{ doctor_form.last_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_phone">Phone Number</label>
+                        {{ doctor_form.phone }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_date_of_birth">Date of Birth</label>
+                        {{ doctor_form.date_of_birth }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_gender">Gender</label>
+                        {{ doctor_form.gender }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_specialty">Specialty</label>
+                        {{ doctor_form.specialty }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_license_number">License Number</label>
+                        {{ doctor_form.license_number }}
+                    </div>
+                {% elif role == 'patient' %}
+                    <div class="form-group">
+                        <label for="id_first_name">First Name</label>
+                        {{ patient_form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_last_name">Last Name</label>
+                        {{ patient_form.last_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_phone">Phone Number</label>
+                        {{ patient_form.phone }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_date_of_birth">Date of Birth</label>
+                        {{ patient_form.date_of_birth }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_gender">Gender</label>
+                        {{ patient_form.gender }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_address">Address</label>
+                        {{ patient_form.address }}
+                    </div>
+                {% endif %}
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-submit">Register</button>
+            </form>
+
+            <!-- Login Link -->
+            <p class="login-link">
+                Already have an account? <a href="{% url 'Hapi:login' %}" class="login-btn">Login here</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

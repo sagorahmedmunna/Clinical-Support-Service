@@ -1,0 +1,19 @@
+# Python/Django specific
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+.env
+
+# Virtual environment
+venv/
+env/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Logs & temporary files
+*.log
+*.bak

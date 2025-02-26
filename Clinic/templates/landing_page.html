@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}  
+
+{% block title %}Welcome to HealthCare{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <h1>Welcome to HealthCare</h1>
+            <p>Select your role to get started</p>
+
+            <div class="buttons">
+                <a href="{% url 'Hapi:register' role='patient' %}" class="btn btn-patient">Register as Patient</a>
+                <a href="{% url 'Hapi:register' role='doctor' %}" class="btn btn-doctor">Register as Practitioner</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

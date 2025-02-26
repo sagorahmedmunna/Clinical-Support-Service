@@ -1,0 +1,100 @@
+/* Dashboard Container */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* Card Style */
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Title */
+.dashboard-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Profile Info Section */
+.profile-info {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.profile-info h2 {
+    font-size: 1.5rem;
+    color: #5f6368;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Profile Card */
+.profile-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    text-align: left;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Item */
+.profile-item {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+}
+
+.profile-item strong {
+    color: #007bff;
+}
+
+/* Error Message */
+.error-message {
+    color: #f44336;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+
+    .profile-info h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Styling for the logout button */
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4c4c;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-logout:hover {
+    background-color: #ff2f2f;
+}
