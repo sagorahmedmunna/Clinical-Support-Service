@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    font-family: 'Times New Roman', sans-serif;
+    background: linear-gradient(to bottom, white 50%, #a4cbe7 50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px; /* Bottom Spacing */
+}
+
+
+/* Top Bar */
+.top-bar {
+    width: 100%;
+    background: #e4e7eb;
+    color: rgb(5, 5, 5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-style: bold;
+    font-family: Georgia;
+}
+
+
+/* User Name */
+.user-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 30px; 
+    font-style: bold;
+}
+
+
+/* CDS Care Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* Form Container */
+.container {
+    background: white;
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+
+.form-title {
+    text-align: left;
+    color: rgb(29, 124, 168);
+    width: 100%;
+    font-family: 'Baloo', sans-serif;
+}
+
+
+.form-container {
+    max-width: 600px; 
+    width: 90%; 
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 10px;
+}
+
+
+.form-header {
+    text-align: left;
+}
+
+/* Header Section */
+.form-header h1 {
+    color: #2b579a;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.form-header p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Doctor Image */
+.doctor-img {
+    position: absolute;
+    top: -120px;
+    right: 30px;
+}
+
+.doctor-img img {
+    width: 120px;
+    height: auto;
+}
+
+/* Doctor name, speciality, qualification, email Design */ 
+.doctor-name-box {
+    width: 98%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f8f9fc;
+    width: 98%;
+    color: #030303;
+}
+
+.doctor-speciality-box {
+    width: 98%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f8f9fc;
+    width: 98%;
+    color: #000000;
+}
+
+.doctor-qualification-box {
+    width: 98%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f8f9fc;
+    width: 98%;
+    color: #000000;
+}
+
+.doctor-email-box {
+    width: 98%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f8f9fc;
+    width: 98%;
+    color: #000000;
+}
+
+/* Form Body */
+.form-body {
+    background: #e6e6e6;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+
+/* Form Fields */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.name-fields {
+    display: flex;
+    padding: 1px;
+}
+
+
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group input, input, textarea, select {
+    width: 98%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Date-Time */
+.date-time-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Submit Button */
+button {
+    width: 102%;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #2170a5;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #71a7c0;
+}
+
+.submit-btn {
+    margin-bottom: 30px;
+}
+
