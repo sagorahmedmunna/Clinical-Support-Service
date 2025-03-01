@@ -1,20 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Dashboard</title>
-    <link rel="stylesheet" href="doctor_dashboard.css">
+    <link rel="stylesheet" href="{% static 'css/doctor_dashboard.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Khojki&display=swap">
 </head>
 <body>
-
     <div class="total-container">
         <!-- Sidebar -->
         <div class="container">
             <div class="sidebar">
                 <div class="sidebar-img">
-                    <img src="doctor_profile.svg" alt="Doctor">
+                    <img src="{% static 'images/doctor_profile.svg'%}" alt="Doctor">
                 </div>
                 <h2>Dr. Nushrat Zahan</h2>
                 <div class="sidebar-text">
@@ -22,11 +22,11 @@
                 </div>
                 <div class="sidebar-items">
                     <ul>
-                        <li><img src="dashboard-icon.svg" alt="Dashboard Icon"> Dashboard</li>
-                        <li ><img src="appointment-icon.svg" alt="Appointment Icon"> Appointment Page</li>
-                        <li><img src="profile-icon.svg" alt="Profile Icon"> Profile</li>
-                        <li><img src="settings-icon.svg" alt="Settings Icon"> Settings</li>
-                        <li><img src="logout-icon.svg" alt="Logout Icon"> Logout</li>
+                        <li><img src="{% static 'images/dashboard-icon.svg'%}" alt="Dashboard Icon"> Dashboard</li>
+                        <li ><img src="{% static 'images/appointment-icon.svg'%}" alt="Appointment Icon"> Appointment Page</li>
+                        <li><img src="{% static 'images/profile-icon.svg'%}" alt="Profile Icon"> Profile</li>
+                        <li><img src="{% static 'images/settings-icon.svg'%}" alt="Settings Icon"> Settings</li>
+                        <li><img src="{% static 'images/logout-icon.svg'%}" alt="Logout Icon"><button>Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -40,10 +40,10 @@
                         </div>
                         <div class="icons">
                             <div class="icon-link">
-                                <img src="email-icon.svg" alt="Email Icon">
+                                <img src="{% static 'images/email-icon.svg'%}" alt="Email Icon">
                             </div>
                             <div class="icon-link">
-                                <img src="notification-icon.svg" alt="Notification Icon">
+                                <img src="{% static 'images/notification-icon.svg'%}" alt="Notification Icon">
                             </div>
                             <div class="search-container">
                                 <input type="text" placeholder="Search">
@@ -55,7 +55,7 @@
                     <div class="card">
                         <div class="icon-container">
                             <div class="icon-border">
-                                <img src="total-patient-icon.svg" alt="Total Patient Icon">
+                                <img src="{% static 'images/total-patient-icon.svg'%}" alt="Total Patient Icon">
                             </div>
                         </div>
                         <div class="text-container">
@@ -73,7 +73,7 @@
                     <div class="card">
                         <div class="icon-container">
                             <div class="icon-border">
-                                <img src="today-patient-icon.svg" alt="Today Patient Icon">
+                                <img src="{% static 'images/today-appointments-icon.svg'%}" alt="Today Patient Icon">
                             </div>
                         </div>
                         <div class="text-container">
@@ -91,7 +91,7 @@
                     <div class="card">
                         <div class="icon-container">
                             <div class="icon-border">
-                                <img src="today-appointments-icon.svg" alt="Today Appointments Icon">
+                                <img src="{% static 'images/today-appointments-icon.svg'%}" alt="Today Appointments Icon">
                             </div>
                         </div>
                         <div class="text-container">
@@ -119,7 +119,7 @@
                                 <span>Time</span>
                             </div>
                             <div class="appointment-item">
-                                <img src="profile-icon.svg" alt="Patient Image">
+                                <img src="{% static 'images/profile-icon.svg'%}" alt="Patient Image">
                                 <div class="info">
                                     <span class="name">Sagor Ahmed</span>
                                     <span class="diagnosis">Mental Problem</span>
@@ -127,7 +127,7 @@
                                 <div class="status-box">On Going</div>
                             </div>
                             <div class="appointment-item">
-                                <img src="profile-icon.svg" alt="Patient Image">
+                                <img src="{% static 'images/profile-icon.svg'%}" alt="Patient Image">
                                 <div class="info">
                                     <span class="name">Nur Jahan</span>
                                     <span class="diagnosis">Mon kharap</span>
@@ -135,7 +135,7 @@
                                 <div class="status-box">5:30 PM</div>
                             </div>
                             <div class="appointment-item">
-                                <img src="profile-icon.svg" alt="Patient 3">
+                                <img src="{% static 'images/profile-icon.svg'%}" alt="Patient 3">
                                 <div class="info">
                                     <span class="name">Sultan Mahmud</span>
                                     <span class="diagnosis">Pet Betha</span>
@@ -143,7 +143,7 @@
                                 <div class="status-box">7:00 PM</div>
                             </div>
                             <div class="appointment-item">
-                                <img src="profile-icon.svg" alt="Patient 4">
+                                <img src="{% static 'images/profile-icon.svg'%}" alt="Patient 4">
                                 <div class="info">
                                     <span class="name">Ilman Farabi</span>
                                     <span class="diagnosis">Mental Problem</span>
@@ -157,7 +157,7 @@
                         <div class="patient-card">
                             <h3>Next Patient Details</h3>
                             <div class="patient-info">
-                                <img src="profile-icon.svg" alt="Patient Image">
+                                <img src="{% static 'images/profile-icon.svg'%}" alt="Patient Image">
                                 <div>
                                     <span class="name">Golam Kibria</span>
                                     <span class="diagnosis">Health Checkup</span>
@@ -245,39 +245,68 @@
                     </div>
                     <div class="request-card">
                         <h3>Appointment Request</h3>
+                        {% for entry in appointments %}
+                            {% with entry.resource as appointment %}
+                                <li>
+                                    Appointment ID: {{ appointment.id }} <br>
+                                    Patient: {{ appointment.participant.1.actor.reference }} <br>
+                                    Date: {{ appointment.start }} <br>
+                                    <a href="{% url 'update_appointment_status' appointment.id 'accept' %}">✅ Accept</a> |
+                                    <a href="{% url 'update_appointment_status' appointment.id 'reject' %}">❌ Reject</a>
+                                </li>
+                                <div class="request-item">
+                                    <img src="{% static 'images/profile-icon.svg'%}" alt="Patient Image">
+                                    <div class="info">
+                                        <span class="name">{{ appointment.participant.1.actor.reference }}</span>
+                                        <span class="condition">Cold</span>
+                                    </div>
+                                    <div class="actions">
+                                        <div class="icon">
+                                            <img src="{% static 'images/accept-icon.svg'%}" alt="Accept">
+                                        </div>
+                                        <div class="icon">
+                                            <img src="{% static 'images/cross-icon.svg'%}" alt="Reject">
+                                        </div>
+                                        <div class="icon">
+                                            <img src="{% static 'images/chat-icon.svg'%}" alt="Chat" class="icon">
+                                        </div> 
+                                    </div>
+                                </div>
+                            {% endwith %}
+                        {% endfor %}
                         <div class="request-item">
-                            <img src="profile-icon.svg" alt="Patient Image">
+                            <img src="{% static 'images/profile-icon.svg'%}" alt="Patient Image">
                             <div class="info">
                                 <span class="name">Md. Rakibul Islam</span>
                                 <span class="condition">Cold</span>
                             </div>
                             <div class="actions">
                                 <div class="icon">
-                                    <img src="accept-icon.svg" alt="Accept">
+                                    <img src="{% static 'images/accept-icon.svg'%}" alt="Accept">
                                 </div>
                                 <div class="icon">
-                                    <img src="cross-icon.svg" alt="Reject">
+                                    <img src="{% static 'images/cross-icon.svg'%}" alt="Reject">
                                 </div>
                                 <div class="icon">
-                                    <img src="chat-icon.svg" alt="Chat" class="icon">
+                                    <img src="{% static 'images/chat-icon.svg'%}" alt="Chat" class="icon">
                                 </div> 
                             </div>
                         </div>
                         <div class="request-item">
-                            <img src="profile-icon.svg" alt="Patient Image">
+                            <img src="{% static 'images/profile-icon.svg'%}" alt="Patient Image">
                             <div class="info">
                                 <span class="name">Syeda Tasmiah Chowdhury Orpa</span>
                                 <span class="condition">Over Switting</span>
                             </div>
                             <div class="actions">
                                 <div class="icon">
-                                    <img src="accept-icon.svg" alt="Accept">
+                                    <img src="{% static 'images/accept-icon.svg'%}" alt="Accept">
                                 </div>
                                 <div class="icon">
-                                    <img src="cross-icon.svg" alt="Reject">
+                                    <img src="{% static 'images/cross-icon.svg'%}" alt="Reject">
                                 </div>
                                 <div class="icon">
-                                    <img src="chat-icon.svg" alt="Chat" class="icon">
+                                    <img src="{% static 'images/chat-icon.svg'%}" alt="Chat" class="icon">
                                 </div> 
                             </div>
                         </div>
@@ -287,6 +316,5 @@
             </div>
         </div>
     </div>
-    
 </body>
 </html>

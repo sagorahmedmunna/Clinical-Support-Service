@@ -1,27 +1,5 @@
-body {
-    background-image: url('background-image.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    min-height: 100vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Bebas', sans-serif;
-    background-color: #b7daf1;
-    margin: 0;
-    padding: 20px;
-}
 
 .total-container {
-    display: flex;
-    margin: 0;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    padding: 10px;
-    border-radius: 10px;
     background-color: #ffffff;
 }
 
@@ -54,7 +32,7 @@ input[type="text"]:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 965px; 
+    width: 100%; 
     border-radius: 8px;
     /*border: 1px solid #ccc;*/
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -113,7 +91,7 @@ input[type="text"]:focus {
     padding-top: 10px;
     margin-left: 10px;
     border-radius: 0px;
-    height: 99%;
+    height: 100vh;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
 
@@ -203,7 +181,7 @@ input[type="text"]:focus {
 
 /* Total, Today Patients, Today Appointments */
 .cards {
-    width: 965px;
+    width: 100%;
     height: 150px;
     display: flex;
     justify-content: space-between;
@@ -216,7 +194,7 @@ input[type="text"]:focus {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 280px;
+    width: 33%;
     display: flex;
     align-items: center;
 }
@@ -272,7 +250,7 @@ input[type="text"]:focus {
 
 /* Today Appointment */
 .today-next-content {
-    width: 965px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -287,6 +265,7 @@ input[type="text"]:focus {
     padding-top: 15px;
     padding-left: 20px;
     gap: 16px;
+    width: 100%;
 }
 
 .appointment {
@@ -302,7 +281,7 @@ input[type="text"]:focus {
 }
 
 .appointment-card {
-    width: 450px;
+    width: 50%;
     background-color: #cfe1f5;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -398,7 +377,8 @@ h3 {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
-    width: 385px;
+    width: 50%;
+    margin-right: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -441,9 +421,9 @@ h3 {
 .details-card {
     background-color: #e0f0ff;
     border-radius: 8px;
-    padding: 20px;
-    padding-left: 10px;
-    width: 350px;
+    padding: 10px;
+    width: 100%;
+    margin-right: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -550,6 +530,7 @@ h3 {
     justify-content: space-between;
     gap: 1px;
     padding-top: 10px;
+    width: 100%;
 }
 
 /* Patients Review */ 
@@ -651,7 +632,6 @@ h3 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
     margin-right: 10px;
 }
 

@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import UserRegistrationForm, DoctorRegistrationForm, PatientRegistrationForm, LoginForm
 from .fhir_utils import create_practitioner_in_fhir, create_patient_in_fhir, get_fhir_data  # Import the functions
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.contrib import messages
 
 FHIR_SERVER_URL = 'http://localhost:8080/fhir/'
@@ -112,13 +113,35 @@ def user_dashboard(request):
     fhir_id = user.fhir_id  
     
     fhir_data = get_fhir_data(fhir_id, user.role)
-    print(fhir_id)
+
     if fhir_data:
-        # Pass the FHIR data to the template
-        return render(request, 'dashboard.html', {'fhir_data': fhir_data})
+        if user.role == 'doctor':
+            # Fetch Pending Appointments
+            print(fhir_id)
+            pending_appointments = requests.get(f"{FHIR_SERVER_URL}/Appointment?actor=Practitioner/{user.fhir_id}&status=proposed")
+            print(pending_appointments.status_code)
+            if pending_appointments.status_code == 200:
+                appointments = pending_appointments.json().get("entry", [])
+            else:
+                appointments = []
+            return render(request, 'doctor_dashboard.html', {'fhir_data': fhir_data, 'pending_appointments': appointments})
+        else:
+            return render(request, 'dashboard.html', {'fhir_data': fhir_data})
     else:
-        # If FHIR data is not found, you can handle the error gracefully
         return render(request, 'dashboard.html', {'error': 'No FHIR data found.'})
+    
+# Appointment Management
+@login_required
+def pending_appointments(request):
+    user = request.user
+    response = requests.get(f"{FHIR_SERVER_URL}/Appointment?participant=Practitioner/{user.fhir_id}&status=proposed")
+
+    if response.status_code == 200:
+        appointments = response.json().get("entry", [])
+    else:
+        appointments = []
+
+    return render(request, "pending_appointments.html", {"appointments": appointments, "doctor_id": user.fhir_id})
     
 def doctor_profile(request):
     if not request.user.is_authenticated:
@@ -178,7 +201,27 @@ def doctor_profile(request):
         else:
             res = requests.post(f"{FHIR_SERVER_URL}/PractitionerRole", json=practitioner_role)
             print(res.status_code, practitioner_role)
-
         return redirect("Hapi:doctor_profile")
-
     return render(request, "doctor_profile.html", {"role_data": role_data})
+
+
+
+
+@login_required
+def update_appointment_status(request, appointment_id, action):
+    new_status = "booked" if action == "accept" else "cancelled"
+
+    response = requests.get(f"{FHIR_SERVER_URL}/Appointment/{appointment_id}")
+    if response.status_code != 200:
+        return HttpResponse("Appointment not found.", status=404)
+
+    appointment_data = response.json()
+    appointment_data["status"] = new_status
+
+    update_response = requests.put(f"{FHIR_SERVER_URL}/Appointment/{appointment_id}", json=appointment_data)
+
+    if update_response.status_code == 200:
+        return redirect(request.META.get("HTTP_REFERER", "/"))  # Redirect back to the previous page
+    else:
+        return HttpResponse("Failed to update appointment.", status=400)
+

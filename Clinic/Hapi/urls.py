@@ -10,4 +10,7 @@ urlpatterns = [
     path('/user_dashboard/', views.user_dashboard, name='dashboard'),
     path('/profile/doctor/', views.doctor_profile, name='doctor_profile'),
     path('/logout/', views.user_logout, name='logout'),
+
+    #Appointment
+    path("/pending-appointments/", views.pending_appointments, name="pending_appointments"),
 ]
