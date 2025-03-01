@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Prescription Form</title>
+    <link rel="stylesheet" href="medication_prescription_form.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Medication Prescription Form</h2>
+        <form id="medicationForm">
+            <div class="medicine-list" id="medicineList">
+                <div class="medicine-item">
+                    <div class="medicine-details">
+                        <input type="text" class="medicine-name" placeholder="Enter Medicine Name" name="medicineName[]" oninput="filterMedicines(this)" required>
+                        <select name="medicineType[]" class="medicine-type">
+                            <option value="">Select Type</option>
+                            <option value="Tablet">Tablet</option>
+                            <option value="Capsule">Capsule</option>
+                            <option value="Syrup">Syrup</option>
+                            <option value="Injection">Injection</option>
+                        </select>
+                        <input type="text" name="dose[]" placeholder="Enter Dose (e.g. 500mg)" class="medicine-dose" required>
+                        <input type="text" name="frequency[]" placeholder="Frequency (e.g. daily, twice a day)" class="medicine-frequency" required>
+                        <select name="status[]" class="medicine-status">
+                            <option value="">Select Status</option>
+                            <option value="active">Active</option>
+                            <option value="on-hold">On-hold</option>
+                            <option value="ended">Ended</option>
+                            <option value="stopped">Stopped</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="entered-in-error">Entered-in-error</option>
+                            <option value="draft">Draft</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                        <select name="priority[]" class="medicine-priority">
+                            <option value="">Select Priority</option>
+                            <option value="routine">Routine</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="asap">ASAP</option>
+                            <option value="stat">STAT</option>
+                        </select>
+                    </div>
+                    <div class="notes-container">
+                        <textarea name="notes[]" placeholder="Additional Notes" class="medicine-notes"></textarea>
+                    </div>
+                    <button type="button" class="remove-button" onclick="removeMedicine(this)">Remove</button>
+                </div>
+            </div>
+
+            <button type="button" class="plus-button" onclick="addMedicine()">+ Add More Medicine</button>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
