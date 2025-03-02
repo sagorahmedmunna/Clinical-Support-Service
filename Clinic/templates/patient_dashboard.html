@@ -1,11 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Doctor Dashboard</title>
-      <link rel="stylesheet" href="{% static 'css/patient_dashboard.css' %}">
+      <link rel="stylesheet" href="patient_dashboard.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Khojki&display=swap">
    </head>
    <body>
@@ -15,7 +14,7 @@
             <div class="sidebar-profile-name">
                <div class="sidebar-img">
                   <!-- Example usage of static path for an image -->
-                  <img src="{% static 'images/doctor_profile.svg' %}" alt="User">
+                  <img src="doctor_profile.svg" alt="User">
                </div>
                <h2>Nushrat Zahan</h2>
                <div class="sidebar-text">
@@ -25,35 +24,35 @@
             <div class="sidebar-items">
                <ul>
                   <li>
-                     <img src="{% static 'images/dashboard-icon.svg' %}" alt="Dashboard Icon"> 
+                     <img src="dashboard-icon.svg" alt="Dashboard Icon"> 
                      <a href="patient_dashboard.html"> Dashboard</a>
                   </li>
                   <li>
-                     <img src="{% static 'images/appointment-icon.svg' %}" alt="Appointment Icon"> 
+                     <img src="doctor-appointment-icon.svg" alt="Appointment Icon"> 
                      <a href="book_appointment.html"> Doctor Appointments </a>
                   </li>
                   <li>
-                     <img src="{% static 'images/doctors-list.svg' %}" alt="Doctors List Icon"> 
+                     <img src="doctors-list.svg" alt="Doctors List Icon"> 
                      <a href="doctors-list.html"> Doctors </a>
                   </li>
                   <li>
-                     <img src="{% static 'images/pill-icon.svg' %}" alt="Medication Icon"> 
+                     <img src="pill-icon.svg" alt="Medication Icon"> 
                      <a href="medication.html"> Medication</a>
                   </li>
                   <li>
-                     <img src="{% static 'images/pill-icon.svg' %}" alt="Lab Icon"> 
-                     <a href="medication.html"> Lab </a>
+                     <img src="report-file-icon.svg" alt="Lab Icon"> 
+                     <a href="lab.html"> Lab </a>
                   </li>
                   <li>
-                     <img src="{% static 'images/profile-icon.svg' %}" alt="Profile Icon">
+                     <img src="profile-icon.svg" alt="Profile Icon">
                      <a href="patient-profile.html"> Profile</a>
                   </li>
                   <li>
-                     <img src="{% static 'images/settings-icon.svg' %}" alt="Settings Icon"> 
+                     <img src="settings-icon.svg" alt="Settings Icon"> 
                      <a href="settings.html"> Settings</a>
                   </li>
                   <li>
-                     <img src="{% static 'images/logout-icon.svg' %}" alt="Logout Icon"> 
+                     <img src="logout-icon.svg" alt="Logout Icon"> 
                      <a href="logout.html"> Logout</a>
                   </li>
                </ul>
@@ -68,10 +67,10 @@
                   </div>
                   <div class="icons">
                      <div class="icon-link">
-                        <img src="{% static 'images/email-icon.svg' %}" alt="Email Icon">
+                        <img src="email-icon.svg" alt="Email Icon">
                      </div>
                      <div class="icon-link">
-                        <img src="{% static 'images/notification-icon.svg' %}" alt="Notification Icon">
+                        <img src="notification-icon.svg" alt="Notification Icon">
                      </div>
                   </div>
                </div>
@@ -89,15 +88,15 @@
                            <button class="book-appointment">Book Appointment</button>
                         </div>
                         <div class="intro-image">
-                           <img src="{% static 'images/patient-intro-image.svg' %}" alt="Intro Image">
+                           <img src="patient-intro-image.svg" alt="Intro Image">
                         </div>
                      </section>
                   </div>
                   <!-- Booking Count Layer -->
                   <div class="booking-summary">
                      <div class="card">
-                        <div class="icon" style="background-color: #ff6b6b;">
-                           <img src="{% static 'images/profile-icon.svg' %}" alt="Total Booking">
+                        <div class="icon" style="background-color: #ec7794;">
+                           <img src="total-booking.svg" alt="Total Booking">
                         </div>
                         <div class="booking-text">
                            <h3>33</h3>
@@ -106,7 +105,7 @@
                      </div>
                      <div class="card">
                         <div class="icon" style="background-color: #4dabf7;">
-                           <img src="{% static 'images/profile-icon.svg' %}" alt="Booking Success">
+                           <img src="booking-success.svg" alt="Booking Success">
                         </div>
                         <div class="booking-text">
                            <h3>22</h3>
@@ -115,7 +114,7 @@
                      </div>
                      <div class="card">
                         <div class="icon" style="background-color: #22b8cf;">
-                           <img src="{% static 'images/profile-icon.svg' %}" alt="Booking Cancel">
+                           <img src="booking-cancel.svg" alt="Booking Cancel">
                         </div>
                         <div class="booking-text">
                            <h3>12</h3>
@@ -129,7 +128,7 @@
                         <h2>Ongoing Treatment</h2>
                         <div class="treatment-card">
                            <div class="icon" style="background-color: #86becf;">
-                              <img src="{% static 'images/pill-icon.svg' %}" alt="Pill">
+                              <img src="pill-icon.svg" alt="Pill">
                            </div>
                            <div class="details">
                               <h3>Slimvastatin</h3>
@@ -161,16 +160,16 @@
                            <tr>
                               <td>1</td>
                               <td>
-                                 <img src="{% static 'images/report-file-icon.svg' %}" alt="File Icon">
+                                 <img src="report-file-icon.svg" alt="File Icon">
                               </td>
                               <td><a href="#">Blood Report</a></td>
                               <td>May-28, 2024</td>
                               <td>
                                  <button class="delete-btn">
-                                 <img src="{% static 'images/delete-icon.svg' %}" alt="Delete Icon">
+                                 <img src="delete-icon.svg" alt="Delete Icon">
                                  </button>
                                  <button class="download-btn">
-                                 <img src="{% static 'images/download-icon.svg' %}" alt="Download Icon">
+                                 <img src="download-icon.svg" alt="Download Icon">
                                  </button>
                               </td>
                            </tr>
@@ -179,13 +178,14 @@
                   </div>
                </div>
                <div class="right">
+
                    <!-- Find Specialist -->
                    <div class="specialist-list">
                        <h2>Find Specialist</h2>
                        <p>Choose your category</p>
                        <div class="specialist-card">
                            <div class="icon" style="background-color: #ffe3e3;">
-                               <img src="{% static 'images/profile-icon.svg' %}" alt="Dentist">
+                               <img src="dentist.svg" alt="Dentist">
                             </div>
                             <div class="details">
                                 <h3>Dentist</h3>
@@ -193,13 +193,13 @@
                             </div>
                             <div class="arrow">
                                 <a href="dentist-page.html">
-                                    <img src="{% static 'images/profile-icon.svg' %}" alt="Arrow">
+                                    <img src="profile-icon.svg" alt="Arrow">
                                 </a>
                             </div>
                         </div>
                         <div class="specialist-card">
                             <div class="icon" style="background-color: #e3f2fd;">
-                        <img src="{% static 'images/profile-icon.svg' %}" alt="Cardiologist">
+                        <img src="cardiologist.svg" alt="Cardiologist">
                      </div>
                      <div class="details">
                          <h3>Cardiologist</h3>
@@ -207,13 +207,13 @@
                         </div>
                         <div class="arrow">
                             <a href="cardiologist-page.html">
-                                <img src="{% static 'images/profile-icon.svg' %}" alt="Arrow">
+                                <img src="profile-icon.svg" alt="Arrow">
                             </a>
                         </div>
                     </div>
                     <div class="specialist-card">
                         <div class="icon" style="background-color: #e8eaf6;">
-                            <img src="{% static 'images/profile-icon.svg' %}" alt="General Physician">
+                            <img src="general-physician.svg" alt="General Physician">
                         </div>
                         <div class="details">
                             <h3>General Physician</h3>
@@ -221,79 +221,55 @@
                         </div>
                         <div class="arrow">
                             <a href="physician-page.html">
-                                <img src="{% static 'images/profile-icon.svg' %}" alt="Arrow">
+                                <img src="profile-icon.svg" alt="Arrow">
                             </a>
                         </div>
                     </div>
                     <button class="see-all">See All</button>
-    
-                    <!-- Calendar -->
-                    <div class="calendar-section">
-                        <div class="calendar-appintment">
-                            <h2>Upcoming Appointments</h2>
-                        </div>
-                        <div class="calendar-header">
-                            <button class="nav-btn">&lt;</button>
-                            <h4>May 2025</h4>
-                            <button class="nav-btn">&gt;</button>
-                        </div>
-                        <div class="calendar">
-                            <div class="day">Mo</div>
-                            <div class="day">Tu</div>
-                            <div class="day">We</div>
-                            <div class="day">Th</div>
-                            <div class="day">Fr</div>
-                            <div class="day">Sa</div>
-                            <div class="day">Su</div>
-                            <!-- Days of the month -->
-                            <div class="date">3</div>
-                            <div class="date">4</div>
-                            <div class="date">5</div>
-                            <div class="date">6</div>
-                            <div class="date">7</div>
-                            <div class="date">8</div>
-                            <div class="date">9</div>
-                            <div class="date">10</div>
-                            <div class="date">11</div>
-                            <div class="date">12</div>
-                            <div class="date">13</div>
-                            <div class="date">14</div>
-                            <div class="date">15</div>
-                            <div class="date">16</div>
-                            <div class="date">17</div>
-                            <div class="date">18</div>
-                            <div class="date">19</div>
-                            <div class="date highlighted">
-                                20
-                                <div class="tooltip">
-                                    <p>Dr. Rita Ora</p>
-                                <p>10:30 AM</p>
-                                <button>See Details</button>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline-container">
+                    <h2>Timeline</h2>
+                    <div class="timeline-section">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="circle"></div>
+                                <div class="content">
+                                    <p class="time">AN HOUR AGO</p>
+                                    <hr>
+                                    <p><a href="#">Dr. Janie Mcdonald</a> - sent a new prescription.</p>
+                                    <p>Medicine Name - <span class="highlight">Amocvmillin</span></p>
+                                    <p><a href="#" class="link">Medication Link ↗</a></p>
                                 </div>
                             </div>
-                            <div class="date">21</div>
-                            <div class="date">22</div>
-                            <div class="date">23</div>
-                            <div class="date">24</div>
-                            <div class="date highlighted">
-                                25
-                                <div class="tooltip">
-                                    <p>Dr. Nusu</p>
-                                    <p>11:30 AM</p>
-                                    <button>See Details</button>
+                            <div class="timeline-item">
+                                <div class="circle"></div>
+                                <div class="content">
+                                    <p class="time">AN HOUR AGO</p>
+                                    <hr>
+                                    <p><a href="#">Dr. Hector Banks</a> - uploaded a report.</p>
+                                    <p>Report Name - <span class="highlight">Lisymorpril</span></p>
+                                    <p><a href="#" class="link">Medication Link ↗</a></p>
                                 </div>
                             </div>
-                            <div class="date">26</div>
-                            <div class="date">27</div>
-                            <div class="date">28</div>
-                            <div class="date">29</div>
-                            <div class="date">30</div>
-                            <div class="date">31</div>
+                            <div class="timeline-item">
+                                <div class="circle"></div>
+                                <div class="content">
+                                    <p class="time">AN HOUR AGO</p>
+                                    <hr>
+                                    <p><a href="#">Dr. Deena Cooley</a> - sent medicine details.</p>
+                                    <p>Medicine Name - <span class="highlight">Predeymosone</span></p>
+                                    <p><a href="#" class="link">Medication Link ↗</a></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
         </div>
+    </div>
     </div>
    </body>
 </html>
