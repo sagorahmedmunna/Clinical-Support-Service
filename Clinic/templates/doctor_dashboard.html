@@ -16,7 +16,7 @@
                 <div class="sidebar-img">
                     <img src="{% static 'images/doctor_profile.svg'%}" alt="Doctor">
                 </div>
-                <h2>Dr. Nushrat Zahan</h2>
+                <h2>{{fhir_data.name.0.given.0}} {{fhir_data.name.0.family}}</h2>
                 <div class="sidebar-text">
                     <p>MBBS, FCPS - MD (Medicine), MCPS</p>
                 </div>
@@ -26,7 +26,9 @@
                         <li ><img src="{% static 'images/appointment-icon.svg'%}" alt="Appointment Icon"> Appointment Page</li>
                         <li><img src="{% static 'images/profile-icon.svg'%}" alt="Profile Icon"> Profile</li>
                         <li><img src="{% static 'images/settings-icon.svg'%}" alt="Settings Icon"> Settings</li>
-                        <li><img src="{% static 'images/logout-icon.svg'%}" alt="Logout Icon"><button>Logout</button></li>
+                        <a href="{% url 'Hapi:logout'%}" style="text-decoration: none; color: black;">
+                            <li><img src="{% static 'images/logout-icon.svg'%}" alt="Logout Icon">Logout</li>
+                        </a>
                     </ul>
                 </div>
             </div>

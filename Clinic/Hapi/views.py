@@ -124,9 +124,10 @@ def user_dashboard(request):
                 appointments = pending_appointments.json().get("entry", [])
             else:
                 appointments = []
+            print(appointments)
             return render(request, 'doctor_dashboard.html', {'fhir_data': fhir_data, 'pending_appointments': appointments})
         else:
-            return render(request, 'dashboard.html', {'fhir_data': fhir_data})
+            return render(request, 'patient_dashboard.html', {'fhir_data': fhir_data})
     else:
         return render(request, 'dashboard.html', {'error': 'No FHIR data found.'})
     
