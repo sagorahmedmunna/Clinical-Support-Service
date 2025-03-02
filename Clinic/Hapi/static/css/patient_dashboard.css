@@ -190,6 +190,7 @@ input[type="text"]:focus {
 /* Intro, Booking Count, Find Specialist */
 .intro-book {
     margin-right: 20px;
+    width: 100%;
 }
 
 /* Intro */
@@ -266,6 +267,7 @@ input[type="text"]:focus {
     background-color: #fcfcfc;
     border-radius: 2%;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    gap: 10px;
 }
 
 .card {
@@ -275,7 +277,7 @@ input[type="text"]:focus {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    width: 150px;
+    width: 30%;
 }
 
 .icon {
@@ -682,7 +684,7 @@ button:hover {
 }
 
 .right {
-    width: 50%;
+    width: %;
     margin-left: 40px;
     margin-right: 40px;
 }
