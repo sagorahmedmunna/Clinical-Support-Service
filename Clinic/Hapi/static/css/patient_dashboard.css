@@ -190,7 +190,6 @@ input[type="text"]:focus {
 /* Intro, Booking Count, Find Specialist */
 .intro-book {
     margin-right: 20px;
-    width: 100%;
 }
 
 /* Intro */
@@ -267,7 +266,6 @@ input[type="text"]:focus {
     background-color: #fcfcfc;
     border-radius: 2%;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    gap: 10px;
 }
 
 .card {
@@ -277,7 +275,7 @@ input[type="text"]:focus {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    width: 30%;
+    width: 150px;
 }
 
 .icon {
@@ -432,7 +430,6 @@ input[type="text"]:focus {
     margin-bottom: 15px;
     margin-top: -1%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    width: ;
 }
 
 .icon {
@@ -517,98 +514,102 @@ input[type="text"]:focus {
     display: flex;
 }
 
-/* Upcoming Appointment with Calendar */
-.calendar-section {
-    max-width: 300px;
+/* Timeline */
+.timeline-container {
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
     margin: 0 auto;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+.timeline-container h2 {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 20px;
     margin-top: 2%;
-    margin-left: -1;
+    color: #333;
+}
+
+.timeline-section {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    padding-top: 1%;
+    margin-top: -3%;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
-.calendar-appintment {
-    text-align: center;
-    font-size: 14px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.nav-btn {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    text-align: center;
-}
-
-.day {
-    font-weight: bold;
-    color: #333;
-}
-
-.date {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+.timeline {
     position: relative;
+    padding-left: 12px;
+    border-left: 2px solid #007bff;
 }
 
-.highlighted {
-    background-color: #ff4d4d;
-    color: #fff;
-    border-radius: 50%;
-    cursor: pointer;
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 20px;
 }
 
-.tooltip {
-    display: none;
+.circle {
     position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: -18px;
+    width: 8px;
+    height: 8px;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    width: 150px;
-    z-index: 10;
+    border: 2px solid #242323;
+    border-radius: 50%;
 }
 
-.tooltip p {
-    margin: 5px 0;
-    color: #333;
+.content {
+    padding-left: 1.5px;
 }
 
-.tooltip button {
-    background-color: #007bff;
-    color: #fff;
+.time {
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+hr {
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    width: 100%;
+    border-top: 1px dashed #666;
+    margin: 5px 0;
+    width: 40%;
 }
 
-.date:hover .tooltip {
-    display: block;
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.highlight {
+    color: #ff4d4d;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.timeline-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.timeline-section::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.timeline-section:hover::-webkit-scrollbar-thumb {
+    background-color: #888;
 }
 
 /* Reports */
@@ -684,7 +685,7 @@ button:hover {
 }
 
 .right {
-    width: %;
+    width: 50%;
     margin-left: 40px;
     margin-right: 40px;
 }
