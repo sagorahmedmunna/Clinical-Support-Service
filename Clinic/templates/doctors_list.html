@@ -132,6 +132,88 @@
                 </div>
             </div>
         </div>
+
+        <!-- Book Appointment -->
+        <div id="appointmentModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Book Appointment</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Doctor's Name</label>
+                        <div class="input-like">Dr. Nushrat Zahan</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Doctor's Speciality</label>
+                        <div class="input-like">Cardiologist</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Doctor's Qualification</label>
+                        <div class="input-like">MBBS, FCPS - MD (Medicine), MCPS</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Doctor's Email</label>
+                        <div class="input-like">nushrat7xx7@gmail.com</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Appointment Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Time</label>
+                        <select required>
+                            <option value="">Select Time</option>
+                            <option>5:00 PM</option>
+                            <option>5:30 PM</option>
+                            <option>6:00 PM</option>
+                            <option>6:30 PM</option>
+                            <option>7:00 PM</option>
+                            <option>7:30 PM</option>
+                            <option>8:00 PM</option>
+                            <option>8:30 PM</option>
+                            <option>9:00 PM</option>
+                            <option>9:30 PM</option>
+                            <option>10:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Comment</label>
+                        <textarea placeholder="Comment"></textarea>
+                    </div>
+                    <button type="submit">Confirm Appointment</button>
+                </form>
+            </div>
+        </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("appointmentModal");
+            var btns = document.querySelectorAll(".card button");
+            var span = document.getElementsByClassName("close")[0];
+    
+            btns.forEach(function(btn) {
+                btn.onclick = function() {
+                    modal.style.display = "flex";
+                    document.body.classList.add('modal-open');
+                }
+            });
+    
+            span.onclick = function() {
+                modal.style.display = "none";
+                document.body.classList.remove('modal-open');
+            }
+    
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    document.body.classList.remove('modal-open');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
