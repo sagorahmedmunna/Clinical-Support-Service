@@ -1,62 +1,68 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Dashboard</title>
-    <link rel="stylesheet" href="doctors_list.css">
+    <link rel="stylesheet" href="{% static 'css/doctors_list.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Khojki&display=swap">
 </head>
 <body>
     <div class="total-container">
         <!-- Sidebar -->
         <div class="sidebar">
-            <div class="sidebar-profile-name">
-                <div class="sidebar-img">
-                    <img src="doctor_profile.svg" alt="User">
-                </div>
-                <h2>Nushrat Zahan</h2>
-                <div class="sidebar-text">
-                    <p>nushrat7xx7@gmail.com</p>
-                </div>
+            <div class="sidebar-img">
+               <!-- Example usage of static path for an image -->
+               <img src="{% static 'images/doctor_profile.svg' %}" alt="User">
+            </div>
+            <h2>{{fhir_data.name.0.given.0}} {{fhir_data.name.0.family}}</h2>
+            <div class="sidebar-text">
+               <p>nushrat7xx7@gmail.com</p>
             </div>
             <div class="sidebar-items">
-                <ul>
-                    <li>
-                        <img src="dashboard-icon.svg" alt="Dashboard Icon"> 
-                        <a href="patient_dashboard.html"> Dashboard</a>
-                    </li>
-                    <li>
-                        <img src="doctor-appointment-icon.svg" alt="Appointment Icon"> 
-                        <a href="book_appointment.html"> Doctor Appointments </a>
-                    </li>
-                    <li>
-                        <img src="doctors-list.svg" alt="Doctors List Icon"> 
-                        <a href="doctors-list.html"> Doctors </a>
-                    </li>
-                    <li>
-                        <img src="pill-icon.svg" alt="Medication Icon"> 
-                        <a href="medication.html"> Medication</a>
-                    </li>
-                    <li>
-                        <img src="report-file-icon.svg" alt="Lab Icon"> 
-                        <a href="lab.html"> Lab </a>
-                    </li>
-                    <li>
-                        <img src="profile-icon.svg" alt="Profile Icon">
-                        <a href="patient-profile.html"> Profile</a>
-                    </li>
-                    <li>
-                        <img src="settings-icon.svg" alt="Settings Icon"> 
-                        <a href="settings.html"> Settings</a>
-                    </li>
-                    <li>
-                        <img src="logout-icon.svg" alt="Logout Icon"> 
-                        <a href="logout.html"> Logout</a>
-                    </li>
-                </ul>
+               <ul>
+                  <a href="{% url 'Hapi:dashboard' %}"> 
+                     <li>
+                        <img src="{% static 'images/dashboard-icon.svg' %}" alt="Dashboard Icon"> 
+                           Dashboard
+                     </li>
+                  </a>
+                  <li>
+                     <img src="{% static 'images/doctor-appointment-icon.svg' %}" alt="Appointment Icon"> 
+                     <a href="{% url 'Hapi:request_appointment' %}"> Doctor Appointments </a>
+                  </li>
+                  <a href="{% url 'Hapi:doctor-list' %}"> 
+                     <li>
+                        <img src="{% static 'images/doctors-list.svg' %}" alt="Doctors List Icon"> 
+                           Doctors 
+                     </li>
+                  </a>
+                  <li>
+                     <img src="{% static 'images/pill-icon.svg' %}" alt="Medication Icon"> 
+                     <a href="medication.html"> Medication</a>
+                  </li>
+                  <li>
+                     <img src="{% static 'images/report-file-icon.svg' %}" alt="Lab Icon"> 
+                     <a href="lab.html"> Lab </a>
+                  </li>
+                  <li>
+                     <img src="{% static 'images/profile-icon.svg' %}" alt="Profile Icon">
+                     <a href="patient-profile.html"> Profile</a>
+                  </li>
+                  <li>
+                     <img src="{% static 'images/settings-icon.svg' %}" alt="Settings Icon"> 
+                     <a href="settings.html"> Settings</a>
+                  </li>
+                  <a href="{% url 'Hapi:logout' %}" style="color: #4dabf7;"> 
+                     <li>
+                        <img src="{% static 'images/logout-icon.svg' %}" alt="Logout Icon"> 
+                           Logout 
+                     </li>
+                  </a>
+               </ul>
             </div>
-        </div>
+         </div>
         
         <!-- Doctors Card -->
         <div class="content">
@@ -67,7 +73,7 @@
             </div>
             <div class="grid">
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
@@ -75,7 +81,7 @@
                     <button>Book Appointment</button>
                 </div>
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
@@ -83,7 +89,7 @@
                     <button>Book Appointment</button>
                 </div>
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
@@ -91,7 +97,7 @@
                     <button>Book Appointment</button>
                 </div>
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
@@ -99,7 +105,7 @@
                     <button>Book Appointment</button>
                 </div>
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
@@ -107,7 +113,7 @@
                     <button>Book Appointment</button>
                 </div>
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
@@ -115,7 +121,7 @@
                     <button>Book Appointment</button>
                 </div>
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
@@ -123,7 +129,7 @@
                     <button>Book Appointment</button>
                 </div>
                 <div class="card">
-                    <img src="profile-icon.svg" alt="Doctor">
+                    <img src="{% static 'images/profile-icon.svg' %}" alt="Doctor">
                     <h3>Dr. Clive Nathan</h3>
                     <p>Gynecologist, General Physician</p>
                     <p>8 Years Experience</p>
